@@ -17,13 +17,17 @@ class BotController extends Controller
 
         echo $result['choices'][0]['text'];
     }
-    public function test()
-    {
-
-        $response = Telegram::getMe();
-        $botId = $response->getId();
-        $firstName = $response->getFirstName();
-        $username = $response->getUsername();
-        return $botId;
+    
+    public function update(){
+        $updates = Telegram::getWebhookUpdates();
+        return (json_encode($updates));
+    }
+    public function sendMassage(Request $request){
+        file_put_contents('test.txt',json_encode($request->all()));
+        Telegram::sendMassage([
+            'chat_id' => 'RECIPIENT_CHAT_ID',
+            'text' => 'Привет, мир!'
+        ]);
+        return;
     }
 }

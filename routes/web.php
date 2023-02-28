@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test',[BotController::class,'create']);
-Route::get('/testbot',[BotController::class,'test']);
+Route::post('/botupdate',[BotController::class,'update']);
+Route::post('/sendmessage',[BotController::class,'sendmassage']);
