@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('username');
-            $table->unsignedBigInteger('user_id');
+            $table->string('user_id');
             $table->unsignedSmallInteger('isvip')->default(0);
             $table->unsignedBigInteger('counter')->default(0);
         });
